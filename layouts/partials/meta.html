@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head prefix="og: http://ogp.me/ns/website#">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Twitter Cards / OGP -->
+    <meta property="og:site_name" content="Chorale Music">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@choraleapp">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta name="generator" content="Hugo {{ .Hugo.Version }}">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <!-- Metadata -->
+    <title>{{ if eq .Title .Site.Title }}{{ .Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta property="og:title" content="{{ .Title }}">
+    <meta name="description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta name="canonical" content="{{ .Permalink }}">
+    <meta name="theme-color" content="#1f1f1f">
+  </head>

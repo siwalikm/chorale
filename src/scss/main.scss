@@ -1,0 +1,514 @@
+// Transpiles all to one
+@import 'stableset';
+@import 'gridly';
+@import 'wiclwic';
+
+$default-bg: #fff;           // in dark theme: 202020
+$regular-text-color: #333;   // in dark theme: #ccc
+$bold-text-color: #000;      // in dark theme: #fff
+
+$brand-main: #8728CC;        // variant: #AF3FFF
+$brand-secondary: #2861CC;
+
+$brand-yellow: #FFBE0B;
+$brand-orange: #FF7F3F;
+$brand-red: #E51B1B;
+$brand-light-blue: #7FFFF4;
+$brand-confident-blue: #2861CC;
+$brand-boring-blue: #3A86FF;
+$brand-blurple: #4328CC;
+$brand-pink: #FF006E;
+
+
+/**
+ * Root
+ */
+
+html {
+  font-family: 'Rubik', sans-serif;
+  background: $default-bg;
+  color: $regular-text-color;
+  line-height: 1.4;
+  -webkit-tap-highlight-color: transparent;
+}
+
+mark {
+  background: rgba($bold-text-color, 0.8);
+  color: invert($bold-text-color);
+}
+
+svg {
+  height: 2rem;
+  width: 2rem;
+  position: relative;
+  top: 0.125rem;
+
+  path { fill: $regular-text-color; }
+}
+
+img {
+  height: 50%;
+  width: 50%;
+}
+
+a {
+  color: $brand-main;
+
+  &:hover { color: $bold-text-color; }
+  &:active { opacity: 0.8; }
+}
+
+hr.fancy {
+  border: 0;
+  margin: 6rem;
+
+  &::after {
+    content: ' · · · · · ';
+    letter-spacing: 1rem;
+  }
+}
+
+
+/**
+ * Dropins
+ */
+
+.container {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1rem;
+  display: block;
+}
+
+.background {
+  background-size: cover;
+}
+
+// Text
+.bold { color: $bold-text-color; }
+.highlighted { color: $brand-main; }
+.center { text-align: center; }
+
+// Align
+.break { padding: 1.5rem; }
+
+@media (max-width: 640px) {
+  .mobile-break {
+    display: block;
+    margin: 2rem;
+  }
+}
+
+
+/**
+ * Elements
+ */
+
+.h1 { font-size: 2rem; }
+.h2 { font-size: 1.75rem; }
+.h3 { font-size: 1.5rem; }
+.h4 { font-size: 1.25rem; }
+.h5 { font-size: 1.125rem; }
+.h6 { font-size: 1.025rem; }
+
+.markdown-container {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.125rem; }
+  h6 { font-size: 0.825rem; }
+}
+
+.btn {
+  padding: 0.8rem 1.4rem;
+  margin-right: 0.5rem;
+  border: 0;
+  background: transparent;
+  border-radius: 0.25rem;
+  border: 0.1rem solid transparent;
+
+  // For all
+  &:active {
+    opacity: 0.8;
+    position: relative;
+    top: 0.125rem;
+  }
+
+  // Disabled
+  &[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    &:active {
+      position: static;
+      opacity: 0.6;
+    }
+  }
+
+  // Variants
+  &--primary {
+    background: $brand-main;
+    color: #fff;
+
+    &:hover {
+      background: $bold-text-color;
+      color: invert($bold-text-color);
+    }
+  }
+
+  &--secondary {
+    background: $brand-secondary;
+    color: #fff;
+
+    &:hover {
+      background: $bold-text-color;
+      color: invert($bold-text-color);
+    }
+  }
+
+  &--border {
+    border-color: currentColor;
+    color: $bold-text-color;
+
+    &:hover {
+      border-color: currentColor;
+      color: $brand-main;
+    }
+  }
+}
+
+.card {
+  padding: 2rem 1.25rem;
+  margin: 0 0.4rem;
+  color: $regular-text-color;
+  border: 0.1rem solid rgba($bold-text-color, 0.2);
+
+  &:hover {
+    border-color: transparent;
+    box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.2);
+  }
+  &:active {
+    box-shadow: inset 0 0.25rem 0.5rem rgba(#000, 0.2);
+  }
+}
+
+
+/**
+ * Navigation
+ */
+
+.nav-bar {
+  position: absolute;
+  width: 100%;
+
+  a { color: #fff; }
+
+  &__logo {
+    margin: 0 1rem;
+    margin-right: 2rem;
+    height: 0.75rem;
+    width: auto;
+    position: relative;
+    transform: scale(1.5);
+  }
+
+  &__list {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      padding: 0 1rem;
+    }
+  }
+
+  &__icon { display: none; }
+}
+
+@media (max-width: 640px) {
+  .nav-bar__list { display: none; }
+  .nav-bar__logo { margin-left: 0; }
+
+  .nav-bar__icon {
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    transform: scale(1.4);
+    position: relative;
+    top: 0.125rem;
+    margin-right: 2rem;
+
+    &--open { display: block; }
+    &--close { display: none; }
+    path { fill: #fff; }
+  }
+
+  .nav-bar.nav-bar--active-on-mobile {
+    position: fixed;
+    background: rgba(#000, 0.8);
+
+    .nav-bar__icon {
+      &--open { display: none; }
+      &--close { display: block; }
+    }
+
+    .nav-bar__list {
+      display: block;
+      position: fixed;
+      top: 3.45rem;
+      padding-top: 3rem;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(#000, 0.8);
+
+      li {
+        font-size: 1.6rem;
+        display: block;
+        padding: 0.5rem 3.25rem;
+      }
+    }
+  }
+}
+
+.header-cover {
+  height: 3.45rem;
+  background: #1f1f1f;
+}
+
+
+/**
+ * Globals
+ */
+
+.basic-section {
+  padding: 6rem 0;
+}
+
+.brand-section {
+  padding: 6rem 0;
+  color: #fff;
+  background: $brand-main;
+}
+
+.footer {
+  padding: 1rem;
+  color: $bold-text-color;
+
+  a {
+    color: $bold-text-color;
+    font-weight: bold;
+
+    &:hover { color: $brand-main; }
+  }
+}
+
+
+/**
+ * Homepage
+ */
+
+.hero-greeting {
+  height: 100vh;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  text-align: center;
+  background-size: cover;
+  background-image: linear-gradient(135deg, rgba($brand-secondary, 1), rgba($brand-main, 0.6) ),
+      url('/hero.jpeg');
+
+  &__container {
+    max-width: 60%;
+    padding: 0;
+  }
+
+  .btn--primary {
+    background: #fff;
+    color: #333;
+
+    &:hover { background: #ccc; }
+  }
+  .btn--border {
+    color: #fff;
+
+    &:hover { color: #ccc; }
+  }
+}
+
+// Make sure container fits on screen
+@media (max-width: 640px) {
+  .hero-greeting__container {
+    max-width: 80%;
+  }
+}
+
+@media (max-height: 600px) {
+  .hero-greeting__container {
+    max-width: 90%;
+  }
+  .h1 { font-size: 1.8rem; }
+  .btn { padding: 0.4rem 0.6rem; display: block; }
+}
+
+@media (max-height: 480px) {
+  .hero-greeting__container {
+    max-width: 90%;
+  }
+  .h1 { font-size: 1.25rem; }
+  .btn { padding: 0.2rem 0.6rem; }
+}
+
+.basic-hero {
+  padding: 6rem 0;
+  color: $bold-text-color;
+  border-bottom: 0.1rem solid #303030;
+}
+
+
+/**
+ * Forms
+ */
+
+select {
+  padding: 0.6rem;
+  background: transparent;
+  border: 0.1rem solid lightgray;
+  display: block;
+  color: $bold-text-color;
+  //margin: 0.6rem 0;
+  width: 18rem;
+}
+
+.text-field {
+  padding: 0.6rem;
+  background: transparent;
+  border: 0.1rem solid lightgray;
+  display: block;
+  color: $bold-text-color;
+  //margin: 0.6rem 0;
+  width: 18rem;
+
+  &:focus { border-color: $bold-text-color; }
+}
+
+.number-field { width: 6rem; }
+
+
+/**
+ * Other
+ */
+
+.warning {
+  padding: 2rem;
+  background: $brand-yellow;
+  color: #000;
+  border-radius: 0.25rem;
+}
+
+.icon-grid {
+  padding: 2rem 0;
+
+  .col { padding-right: 2rem; }
+  .col:nth-child(even) { padding-right: 0; }
+
+  .h4 { margin: 0; }
+
+  &__icon {
+    float: left;
+    margin-right: 1rem;
+  }
+}
+
+
+.pricing-table {
+  width: 100%;
+  overflow-x: auto;
+  height: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  table-layout: fixed;
+  display: block;
+  margin: 0 auto;
+
+  // Headings
+  th {
+    padding: 1rem;
+    padding-top: 1.5rem;
+    font-weight: normal;
+  }
+
+  // Left side
+  .feature {
+    padding: 0.8rem;
+    border-right-color: $brand-main;
+
+    &--last { border-bottom: 0; padding: 2rem 1rem; }
+  }
+
+  // Every box (except headings)
+  td {
+    border-bottom: 0.1rem solid #dedede;
+    border-top: 0.1rem solid #dedede;
+  }
+}
+
+
+.comparision-table {
+  width: 100%;
+  overflow-x: auto;
+  text-align: center;
+  border-collapse: collapse;
+  table-layout: fixed;
+  display: block;
+
+  // Headings
+  th {
+    padding: 1rem;
+    padding-top: 1.5rem;
+
+    img {
+      height: 1.5rem;
+      width: auto;
+    }
+  }
+
+  // Left side
+  .feature {
+    padding: 0.8rem;
+    border-right-color: $brand-main;
+
+    &--last { border-bottom: 0; }
+  }
+
+  // Every box (except headings)
+  td {
+    border-bottom: 0.1rem solid #dedede;
+    border-top: 0.1rem solid #dedede;
+  }
+
+  // Give Chorale focus
+  td.chorale {
+    border-color: $brand-main;
+    border-left: 0.1rem solid $brand-main;
+    border-right: 0.1rem solid $brand-main;
+    padding: 1rem 2.5rem;
+
+    svg path { fill: $brand-main; }
+  }
+
+  th.chorale {
+    border-left: 0.1rem solid $brand-main;
+    border-right: 0.1rem solid $brand-main;
+    border-top-color: $brand-main;
+    background: $brand-main;
+
+    &.last { border-bottom: 0.1rem solid $brand-main; }
+  }
+}

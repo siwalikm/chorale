@@ -1,0 +1,180 @@
+{{ partial "meta.html" . }}
+<body class="index">
+{{ partial "nav.html" . }}
+<!-- Content -->
+<main class="hero-greeting">
+  <div class="hero-greeting__container container">
+    <h1 class="h1"><b>Spotify, Google, and SoundCloud don’t listen to their users.
+       Try Chorale, you won’t go back.</b></h1>
+    <p>Chorale is a user-focused app for listening to your favorite stuff.
+       Chorale is made for everyone and with beautiful design, endless
+       customization options, and a powerful creator platform, you’ll wonder why
+       you ever lived without it. The app is currently in alpha testing, and you
+       can request access.</p>
+
+       <div class="center">
+         <div class="break"></div>
+            <a href="/early-access" class="btn btn--primary">Request access</a>
+            <a href="/#explain" class="btn btn--border">I don’t believe you</a>
+          <p><small>we usually respond in a day or two</small></p>
+       </div>
+  </div>
+</main>
+
+<section class="basic-section library-section" id="explain">
+  <div class="container">
+    <h2 class="h1 bold center"><b>Chorale <em>kills</em> the competition.<br>Just look.</b></h1>
+    <p class="bold center">Compare features between Chorale and other listening apps.
+    <br>On topics like “Listens to feedback”, you can click on the cross for more information.<br>
+    Oh, and one more thing, if we made a mistake, please point it out to us via the chat box!</p>
+
+    <div class="break"></div>
+
+    <table class="comparision-table">
+      <tr>
+        <!-- Services -->
+        <th></th>
+        <th class="chorale">
+          <img src="/logo.png">
+        </th>
+        <th>
+          <img src="/competitors/sc.png">
+        </th>
+        <th>
+          <img src="/competitors/spotifoo.png">
+        </th>
+        <th>
+          <img src="/competitors/youtoo.png">
+        </th>
+        <th>
+          <img src="/competitors/gpm.png">
+        </th>
+      </tr>
+      <tr>
+        <td class="feature"><span class="bold">Bring your own<br>music with you</span></td>
+        <td class="chorale"> {{ partial "check.html" . }} </td>
+        <td><!-- SoundCl --> {{ partial "cross.html" . }}</td>
+        <td><!-- Spotify --> {{ partial "cross.html" . }}</td>
+        <td><!-- YouTube --> {{ partial "cross.html" . }}</td>
+        <td><!-- Play Mu --> {{ partial "check.html" . }}</td>
+      </tr>
+      <tr>
+        <td class="feature"><span class="bold">Highest available<br>streaming quality</span></td>
+        <td class="chorale highlighted"><strong>lossless WAV</strong><br>circa 1441 kbps</td>
+        <td><!-- SoundCl --> 128 kbps<br> MP3</td>
+        <td><!-- Spotify --> 320 kbps<br> OGG Vorbis</td>
+        <td><!-- YouTube --> 320 kbps<br> MP4/MP3</td>
+        <td><!-- Play Mu --> 320 kbps<br> MP3</td>
+      </tr>
+      <tr>
+        <td class="feature"><span class="bold">Remote control</span></td>
+        <td class="chorale"> {{ partial "check.html" . }}</td>
+        <td><!-- SoundCl --> {{ partial "cross.html" . }}</td>
+        <td><!-- Spotify --> {{ partial "check.html" . }}</td>
+        <td><!-- YouTube --> Only for<br> Chromecast</td>
+        <td><!-- Play Mu --> Only for<br> Chromecast</td>
+      </tr>
+      <tr>
+        <td class="feature"><span class="bold">Block songs or<br>artists you hate</span></td>
+        <td class="chorale"> {{ partial "check.html" . }}</td>
+        <td><!-- SoundCl --> {{ partial "cross.html" . }}</td>
+        <td><!-- Spotify --> Only in<br> Daily Mix</td>
+        <td><!-- YouTube --> {{ partial "cross.html" . }}</td>
+        <td><!-- Play Mu --> {{ partial "cross.html" . }}</td>
+      </tr>
+      <tr>
+        <td class="feature"><span class="bold">Listen to fan-made<br>mixes and remixes</span></td>
+        <td class="chorale"> {{ partial "check.html" . }}</td>
+        <td><!-- SoundCl --> {{ partial "check.html" . }}</td>
+        <td><!-- Spotify --> {{ partial "cross.html" . }}</td>
+        <td><!-- YouTube --> {{ partial "check.html" . }}</td>
+        <td><!-- Play Mu --> {{ partial "cross.html" . }}</td>
+      </tr>
+      <tr>
+        <td class="feature"><span class="bold">Podcasts, live streams</span></td>
+        <td class="chorale"> {{ partial "check.html" . }}</td>
+        <td><!-- SoundCl --> {{ partial "check.html" . }}</td>
+        <td><!-- Spotify --> {{ partial "check.html" . }}</td>
+        <td><!-- YouTube --> {{ partial "check.html" . }}</td>
+        <td><!-- Play Mu --> US &amp; CA only</td>
+      </tr>
+      <tr>
+        <td class="feature"><span class="bold">Dedicated mix and<br>podcast UI</span></td>
+        <td class="chorale"> {{ partial "check.html" . }}</td>
+        <td><!-- SoundCl --> {{ partial "cross.html" . }}</td>
+        <td><!-- Spotify --> Only for<br>podcasts</td>
+        <td><!-- YouTube --> {{ partial "cross.html" . }}</td>
+        <td><!-- Play Mu --> {{ partial "cross.html" . }}</td>
+      </tr>
+      <tr>
+        <td class="feature"><span class="bold">Change app look<br>to fit your needs</span></td>
+        <td class="chorale"> {{ partial "check.html" . }}</td>
+        <td><!-- SoundCl --> {{ partial "cross.html" . }}</td>
+        <td><!-- Spotify --> {{ partial "cross.html" . }}</td>
+        <td><!-- YouTube --> {{ partial "cross.html" . }}</td>
+        <td><!-- Play Mu --> {{ partial "cross.html" . }}</td>
+      </tr>
+      <tr>
+        <td class="feature"><span class="bold">Desktop apps</span></td>
+        <td class="chorale"> {{ partial "check.html" . }}</td>
+        <td><!-- SoundCl --> {{ partial "cross.html" . }}</td>
+        <td><!-- Spotify --> {{ partial "check.html" . }}</td>
+        <td><!-- YouTube --> {{ partial "cross.html" . }}</td>
+        <td><!-- Play Mu --> {{ partial "cross.html" . }}</td>
+      </tr>
+      <tr>
+        <td class="feature"><span class="bold">Listens to feedback</span></td>
+        <td class="chorale"> {{ partial "check.html" . }}</td>
+        <td><!-- SoundCl --> {{ partial "cross.html" . }}</td>
+        <td><!-- Spotify --> <a href="https://mastodon.xyz/@mistermantas/6982087">{{ partial "cross.html" . }}</a></td>
+        <td><!-- YouTube --> <a href="https://productforums.google.com/forum/#!topicsearchin/youtube/listen$20to$20feedback">
+          {{ partial "cross.html" . }}
+        </a></td>
+        <td><!-- Play Mu --> <a href="https://www.reddit.com/r/Android/comments/5cuwt4/introducing_the_new_google_play_music/">
+          {{ partial "cross.html" . }}
+        </a></td>
+      </tr>
+      <tr>
+        <td class="feature"><span class="bold">Human support</span></td>
+        <td class="chorale"> {{ partial "check.html" . }}</td>
+        <td><!-- SoundCl --> {{ partial "cross.html" . }}</td>
+        <td><!-- Spotify --> {{ partial "check.html" . }}</td>
+        <td><!-- YouTube --> {{ partial "cross.html" . }}</td>
+        <td><!-- Play Mu --> {{ partial "cross.html" . }}</td>
+      </tr>
+      <tr>
+        <td class="feature"><span class="bold">Open source</span></td>
+        <td class="chorale"> {{ partial "check.html" . }}</td>
+        <td><!-- SoundCl --> {{ partial "cross.html" . }}</td>
+        <td><!-- Spotify --> {{ partial "cross.html" . }}</td>
+        <td><!-- YouTube --> {{ partial "cross.html" . }}</td>
+        <td><!-- Play Mu --> {{ partial "cross.html" . }}</td>
+      </tr>
+      <tr>
+        <td class="feature feature--last"><span class="bold">&nbsp;</span></td>
+        <td class="chorale last highlighted">
+          <a href="/pricing">View pricing</a>
+        </td>
+        <td class="feature--last"></td>
+        <td class="feature--last"></td>
+        <td class="feature--last"></td>
+        <td class="feature--last"></td>
+      </tr>
+    </table>
+
+    <div class="break"></div><div class="break"></div>
+    <div class="center">
+      <h1 class="h1 center">Chorale is still under development.</h1>
+      <p class="center">Bringing you all these awesome features is not easy.<br>It takes
+      time. This is why we have an alpha program so testers can try Chorale.</p>
+      <div class="break"></div>
+
+      <a href="/early-access" class="btn btn--primary">Request access</a>
+      <span class="mobile-break"></span>
+      <a href="/creators" class="btn btn--border">I’m a creator</a>
+      <p><small>we usually respond in a day or two</small></p>
+    </div>
+  </div>
+</section>
+<!-- Content -->
+{{ partial "footer.html" . }}

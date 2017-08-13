@@ -1,0 +1,10 @@
+{{ partial "meta.html" . }}
+<body class="default">
+{{ partial "nav.html" . }}
+<div class="header-cover"></div>
+<section class="basic-section">
+  <div class="container markdown-container">
+    {{ .Content }}
+  </div>
+</section>
+{{ partial "footer.html" . }}
