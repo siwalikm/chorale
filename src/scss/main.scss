@@ -4,12 +4,17 @@
 @import 'wiclwic';
 
 $default-bg: #fff;           // in dark theme: 202020
-$regular-text-color: #333;   // in dark theme: #ccc
+$regular-text-color: #292929;// in dark theme: #ccc
 $bold-text-color: #000;      // in dark theme: #fff
 
 $brand-main: #8728CC;        // variant: #AF3FFF
 $brand-secondary: #2861CC;
 
+// brighter
+//$brand-main: #DB1C1C; // E84D00
+//$brand-secondary: #032B43;
+
+// others
 $brand-yellow: #FFBE0B;
 $brand-orange: #FF7F3F;
 $brand-red: #E51B1B;
@@ -19,6 +24,7 @@ $brand-boring-blue: #3A86FF;
 $brand-blurple: #4328CC;
 $brand-pink: #FF006E;
 
+$layers: root, modal;
 
 /**
  * Root
@@ -28,22 +34,24 @@ html {
   font-family: 'Rubik', sans-serif;
   background: $default-bg;
   color: $regular-text-color;
-  line-height: 1.4;
+  line-height: 1.5;
+  z-index: index($layers, root);
   -webkit-tap-highlight-color: transparent;
 }
 
 mark {
-  background: rgba($bold-text-color, 0.8);
-  color: invert($bold-text-color);
+  background: transparent;
+  color: inherit;
+  font-weight: 500;
 }
 
 svg {
-  height: 2rem;
-  width: 2rem;
+  height: 1rem;
+  width: 1rem;
   position: relative;
   top: 0.125rem;
 
-  path { fill: $regular-text-color; }
+  path, g { fill: $regular-text-color; }
 }
 
 img {
@@ -60,7 +68,8 @@ a {
 
 hr.fancy {
   border: 0;
-  margin: 6rem;
+  margin: 2rem;
+  margin-bottom: 4rem;
 
   &::after {
     content: ' · · · · · ';
@@ -78,19 +87,36 @@ hr.fancy {
   margin: 0 auto;
   padding: 1rem;
   display: block;
+
+  &--narrow { max-width: 48rem; }
 }
 
 .background {
   background-size: cover;
 }
 
+// Reset
+.no-bullet {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
 // Text
 .bold { color: $bold-text-color; }
 .highlighted { color: $brand-main; }
 .center { text-align: center; }
+.right { text-align: right; }
+
+.faded { opacity: 0.8; }
+
+.caps { text-transform: uppercase; }
+
+.no-upper-margin { margin-top: 0; }
 
 // Align
-.break { padding: 1.5rem; }
+.break { padding: 1.5rem; &--half { padding: 0.5rem; } }
 
 @media (max-width: 640px) {
   .mobile-break {
@@ -105,11 +131,11 @@ hr.fancy {
  */
 
 .h1 { font-size: 2rem; }
-.h2 { font-size: 1.75rem; }
+.h2 { font-size: 1.6rem; }
 .h3 { font-size: 1.5rem; }
-.h4 { font-size: 1.25rem; }
-.h5 { font-size: 1.125rem; }
-.h6 { font-size: 1.025rem; }
+.h4 { font-size: 1.4rem; }
+.h5 { font-size: 1.2rem; }
+.h6 { font-size: 0.9rem; }
 
 .markdown-container {
   h1 { font-size: 2rem; }
@@ -120,6 +146,8 @@ hr.fancy {
   h6 { font-size: 0.825rem; }
 }
 
+.btn-group .btn { margin: 0.25rem; }
+
 .btn {
   padding: 0.8rem 1.4rem;
   margin-right: 0.5rem;
@@ -127,6 +155,11 @@ hr.fancy {
   background: transparent;
   border-radius: 0.25rem;
   border: 0.1rem solid transparent;
+  cursor: pointer;
+  display: inline-block;
+
+  // For SVGs
+  &--primary, &--secondary { svg path { fill: #fff; } }
 
   // For all
   &:active {
@@ -137,7 +170,6 @@ hr.fancy {
 
   // Disabled
   &[disabled] {
-    opacity: 0.6;
     cursor: not-allowed;
 
     &:active {
@@ -145,6 +177,10 @@ hr.fancy {
       opacity: 0.6;
     }
   }
+
+  // Also this
+  &--sq { padding: 0.8rem; }
+  &--rough { border-radius: 0; }
 
   // Variants
   &--primary {
@@ -179,17 +215,44 @@ hr.fancy {
 }
 
 .card {
-  padding: 2rem 1.25rem;
   margin: 0 0.4rem;
   color: $regular-text-color;
-  border: 0.1rem solid rgba($bold-text-color, 0.2);
+  border: 0.1rem solid $bold-text-color;
+  border-radius: 0.25rem;
+  background: #fff;
+  box-shadow: 0 0.125rem 4rem rgba(#000, 0.2);
 
-  &:hover {
-    border-color: transparent;
-    box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.2);
+  &__header {
+    border-bottom: 0.1rem solid $bold-text-color;
   }
-  &:active {
-    box-shadow: inset 0 0.25rem 0.5rem rgba(#000, 0.2);
+
+  &__header, &__content { padding: 1.4rem 1rem; }
+
+  .btn { width: 100%; text-align: center; }
+}
+
+.card--primary {
+  border-color: $brand-main;
+  transform: scale(1.125);
+
+  .card__header {
+    background: $brand-main;
+    color: #fff;
+    border-bottom-color: $brand-main;
+  }
+}
+
+@media (max-width: 768px) {
+  .card--primary { transform: none; }
+}
+
+.card--secondary {
+  border-color: $brand-secondary;
+
+  .card__header {
+    background: $brand-secondary;
+    color: #fff;
+    border-bottom-color: $brand-secondary;
   }
 }
 
@@ -202,7 +265,13 @@ hr.fancy {
   position: absolute;
   width: 100%;
 
-  a { color: #fff; }
+  a { color: #000; }
+  svg path { fill: #000; }
+
+  &--light {
+    a { color: #fff; }
+    svg path { fill: #fff; }
+  }
 
   &__logo {
     margin: 0 1rem;
@@ -228,7 +297,7 @@ hr.fancy {
   &__icon { display: none; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .nav-bar__list { display: none; }
   .nav-bar__logo { margin-left: 0; }
 
@@ -276,7 +345,7 @@ hr.fancy {
 
 .header-cover {
   height: 3.45rem;
-  background: #1f1f1f;
+  background: #292929;
 }
 
 
@@ -284,9 +353,19 @@ hr.fancy {
  * Globals
  */
 
+.light-gradient {
+  background-image: linear-gradient(#dfdfdf 10%, #fff 25%, #fff 20%, #fff 25%, #fff 30%);
+}
+
 .basic-section {
   padding: 6rem 0;
 }
+
+.larger-section {
+  padding: 4rem 2rem;
+}
+
+.faded-bg { background: #efefef; }
 
 .brand-section {
   padding: 6rem 0;
@@ -294,15 +373,43 @@ hr.fancy {
   background: $brand-main;
 }
 
+.footer-promo {
+  padding: 4rem 1rem;
+  background: $brand-main;
+  color: #fff;
+
+  .btn--primary { background: #fff; color: #000; }
+  .btn--border { color: #fff; }
+}
+
 .footer {
-  padding: 1rem;
-  color: $bold-text-color;
+  padding: 8rem 1rem;
+  background: #292929;
+  color: #fff;
 
   a {
-    color: $bold-text-color;
-    font-weight: bold;
+    color: #ccc;
 
     &:hover { color: $brand-main; }
+  }
+
+  // HACK: https://github.com/sass/libsass/issues/151
+  .sponsor {
+    height: 2rem;
+    width: auto;
+    margin: 0 1rem;
+    filter: #{ "grayscale()" } #{ "invert(0)" };
+
+    &:hover { filter: none; }
+  }
+
+  &__logo {
+    height: 2rem;
+    width: 2rem;
+    position: relative;
+    top: 0.5rem;
+
+    g { fill: #fff; }
   }
 }
 
@@ -311,35 +418,40 @@ hr.fancy {
  * Homepage
  */
 
-.hero-greeting {
+.hero {
   height: 100vh;
   background-size: cover;
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #000;
-  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  width: 100vw;
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+  background-color: #e5e5e5;
   background-size: cover;
-  background-image: linear-gradient(135deg, rgba($brand-secondary, 1), rgba($brand-main, 0.6) ),
-      url('/hero.jpeg');
 
-  &__container {
-    max-width: 60%;
-    padding: 0;
-  }
+  a { color: #000; }
 
   .btn--primary {
-    background: #fff;
-    color: #333;
-
-    &:hover { background: #ccc; }
-  }
-  .btn--border {
+    background: #000;
     color: #fff;
 
-    &:hover { color: #ccc; }
+    &:hover { background: #292929; }
   }
+
+  .btn { color: #fff; }
+
+  .btn--border {
+    color: #000;
+
+    &:hover { color: #292929; }
+  }
+
+  &--light {
+    color: #000;
+  }
+  &--transparent { background-color: transparent; }
 }
 
 // Make sure container fits on screen
@@ -354,7 +466,7 @@ hr.fancy {
     max-width: 90%;
   }
   .h1 { font-size: 1.8rem; }
-  .btn { padding: 0.4rem 0.6rem; display: block; }
+  .btn { padding: 0.4rem 0.6rem; }
 }
 
 @media (max-height: 480px) {
@@ -418,47 +530,15 @@ select {
   .col { padding-right: 2rem; }
   .col:nth-child(even) { padding-right: 0; }
 
-  .h4 { margin: 0; }
-
   &__icon {
-    float: left;
-    margin-right: 1rem;
+    height: 2rem;
+    width: 2rem;
+    display: block;
+    border-radius: 50%;
+
+    path { fill: $bold-text-color; }
   }
 }
-
-
-.pricing-table {
-  width: 100%;
-  overflow-x: auto;
-  height: 100%;
-  text-align: center;
-  border-collapse: collapse;
-  table-layout: fixed;
-  display: block;
-  margin: 0 auto;
-
-  // Headings
-  th {
-    padding: 1rem;
-    padding-top: 1.5rem;
-    font-weight: normal;
-  }
-
-  // Left side
-  .feature {
-    padding: 0.8rem;
-    border-right-color: $brand-main;
-
-    &--last { border-bottom: 0; padding: 2rem 1rem; }
-  }
-
-  // Every box (except headings)
-  td {
-    border-bottom: 0.1rem solid #dedede;
-    border-top: 0.1rem solid #dedede;
-  }
-}
-
 
 .comparision-table {
   width: 100%;
@@ -510,5 +590,80 @@ select {
     background: $brand-main;
 
     &.last { border-bottom: 0.1rem solid $brand-main; }
+  }
+}
+
+.article {
+  color: inherit;
+  border: 0.1rem solid #dedede;
+  background: #fff;
+
+  &__details {
+    padding: 3rem 1.8rem;
+  }
+}
+
+
+/**
+ * Snackbars / toasts
+ */
+
+#snackbar-container {
+  position: fixed;
+  left: 1rem;
+  bottom: 0;
+  z-index: index($layers, modal);
+}
+
+.snackbar {
+  background-color: #424242;
+  color: #fff;
+  border-radius: 0.1rem;
+  height: 0;
+  overflow: hidden;
+  min-width: 18rem;
+  max-width: 36rem;
+  cursor: pointer;
+  opacity: 0;
+
+  &.active {
+    height: auto;
+    opacity: 1;
+    margin-bottom: 1rem;
+    height: auto;
+
+    & span {
+      padding: 1rem 1.5rem;
+      display: inline-block;
+    }
+
+    & > a {
+      text-transform: uppercase;
+      line-height: 100%;
+      font-weight: bold;
+      padding: 1rem;
+      float: right;
+      color: $brand-main;
+      position: relative;
+      top: 0.15rem;
+    }
+  }
+}
+
+// Scale nicely on smaller devices
+@media (max-width: 40rem) {
+  #snackbar-container {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  #snackbar-container .snackbar {
+    min-width: 100%;
+  }
+
+  #snackbar-container .snackbar.active {
+    border-radius: 0;
+    margin-bottom: 0;
   }
 }

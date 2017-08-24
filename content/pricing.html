@@ -3,89 +3,207 @@ title: Pricing
 type: basic
 ---
 
-<div class="container">
-  <div class="break"></div>
-  <h1 class="h1 bold center"><b>Pricing that works for everyone.</b></h1>
-  <p class="bold center">Each plan includes basic features, like the enhanced
-    mix UI and the abillity to listen to anything you want.<br>
-    Note that this pricing scheme is not in effect during the closed testing
-    period.</p>
+<main class="container">
+<div class="break"></div><div class="break"></div>
+<h1 class="h1 bold center"><b>Reasonable prices. Great value.</b></h1>
+<div class="break"></div><div class="break"></div>
 
-  <p class="center"><a href="/creators/pricing">Are you a creator? Click here to see creator plans!</a></p>
+  <div class="row">
+    <figure class="col card">
+      <div class="card__header center">
+        <strong class="highlighted">Free</strong><br>
+        default plan <span class="faded">(never expires)</span>
+      </div>
+      <div class="card__content">
+        <ul class="no-bullet">
+          <li>
+            {{< partial "check.html" >}}
+            Acceptable ads <a href="https://acceptableads.com/">[?]</a>
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Tracks stream at 320 kbps
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Listen from Dropbox/Google Drive
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Light &amp; dark theme
+          </li>
+          <li>
+            {{< partial "cross.html" >}}
+            Cannot upload own music
+          </li>
+          <li>
+            {{< partial "cross.html" >}}
+            Cannot listen without connection
+          </li>
+          <li>
+            {{< partial "cross.html" >}}
+            No access to visualizer <a href="https://www.google.com/search?q=linear%20music%20visualizer%20images">[?]</a>
+          </li>
+          <li>
+            {{< partial "cross.html" >}}
+            No gestures or keybinds
+          </li>
+          <li>
+            {{< partial "cross.html" >}}
+            Best-effort support
+          </li>
+        </ul>
+      </div>
+      <a href="/order" class="btn">Sign up</a>
+    </figure>
 
+    <!---->
 
-  <table class="pricing-table">
-    <tr>
-      <!-- Ranges -->
-      <th></th>
-      <th><b>Free</b><br>forever</th>
-      <th><b>Plus</b><br>$5/mo</th>
-      <th><b>Premium</b><br>$10/mo</th>
-      <th><b>Audiophile</b><br>$15/mo</th>
-    </tr>
-    <tr>
-      <td class="feature"><em class="bold">Ad experience</em></td>
-      <td>Audio &amp; banner ads</td>
-      <td>Unintrusive banner ads</td>
-      <td>No ads</td>
-      <td>No ads</td>
-    </tr>
-    <tr>
-      <td class="feature"><em class="bold">Bring your own<br>music with you</em></td>
-      <td>{{< partial "cross.html" >}}</td>
-      <td>2GB of storage</td>
-      <td>50GB of storage</td>
-      <td>unlimited storage</td>
-    </tr>
-    <tr>
-      <td class="feature"><em class="bold">Theme options</em></td>
-      <td>dark &amp; light</td>
-      <td>energy-saving OLED</td>
-      <td>switch based on time</td>
-      <td>custom CSS</td>
-    </tr>
-    <tr>
-      <td class="feature"><em class="bold">Streaming quality</em></td>
-      <td>128 kbps</td>
-      <td>320 kbps</td>
-      <td>320 kbps</td>
-      <td>lossless WAV</td>
-    </tr>
-    <tr>
-      <td class="feature"><em class="bold">Listen offline</em></td>
-      <td>{{< partial "cross.html" >}}</td>
-      <td>{{< partial "cross.html" >}}</td>
-      <td>{{< partial "check.html" >}}</td>
-      <td>{{< partial "check.html" >}}</td>
-    </tr>
-    <tr>
-      <td class="feature"><em class="bold">Gestures &amp; keybinds</em></td>
-      <td>{{< partial "cross.html" >}}</td>
-      <td>{{< partial "cross.html" >}}</td>
-      <td>{{< partial "check.html" >}}</td>
-      <td>{{< partial "check.html" >}}</td>
-    </tr>
-    <tr>
-      <td class="feature"><em class="bold">Visualizer <a href="https://www.google.com/search?q=linear%20music%20visualizer%20images">(this)</a></em></td>
-      <td>{{< partial "cross.html" >}}</td>
-      <td>{{< partial "cross.html" >}}</td>
-      <td>{{< partial "cross.html" >}}</td>
-      <td>{{< partial "check.html" >}}</td>
-    </tr>
-    <tr>
-      <td class="feature"><em class="bold"><a href="https://discord.io/choraleapp">Discord server</a> role<br>
-      and private chat</em></td>
-      <td>{{< partial "cross.html" >}}</td>
-      <td>{{< partial "check.html" >}}</td>
-      <td>{{< partial "check.html" >}}</td>
-      <td>{{< partial "check.html" >}}</td>
-    </tr>
-    <tr>
-      <td class="feature feature--last"><span class="bold">&nbsp;</span></td>
-      <td class="feature--last"> <a href="#0" class="btn btn--border">Request access</a> </td>
-      <td class="feature--last"> <a href="#0" class="btn btn--primary">Request access</a> </td>
-      <td class="feature--last"> <a href="#0" class="btn btn--primary">Request access</a> </td>
-      <td class="feature--last"> <a href="#0" class="btn btn--secondary" disabled>Coming soon</a> </td>
-    </tr>
-  </table>
-</div>
+    <figure class="col card card--primary">
+      <div class="card__header center">
+        <strong>Extra</strong><br>
+        $5<span class="faded">, every month</span>
+      </div>
+      <div class="card__content">
+        <ul class="no-bullet">
+          <li>
+            {{< partial "check.html" >}}
+            Banner &amp; footer ads
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Tracks stream at 320 kbps
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Listen from Dropbox/Google Drive
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Light, dark, and AMOLED theme
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Gestures &amp; keybinds
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Private <a href="https://discord.io/choraleapp">chat</a>, standard support
+          </li>
+          <li>
+            {{< partial "cross.html" >}}
+            Cannot upload own music
+          </li>
+          <li>
+            {{< partial "cross.html" >}}
+            Cannot listen without connection
+          </li>
+          <li>
+            {{< partial "cross.html" >}}
+            No access to visualizer <a href="https://www.google.com/search?q=linear%20music%20visualizer%20images">[?]</a>
+          </li>
+        </ul>
+
+      </div>
+      <a href="/order" class="btn btn--primary btn--rough">Start free 14 day trial</a>
+    </figure>
+
+    <!---->
+
+    <figure class="col card card--secondary">
+      <div class="card__header center">
+        <strong>Premier</strong><br>
+        $10<span class="faded">, every month</span>
+      </div>
+      <div class="card__content">
+        <ul class="no-bullet">
+          <li>
+            {{< partial "check.html" >}}
+            No ads
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Tracks stream at 320 kbps
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Upload 10 GB of your own music
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Listen without connection
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Listen from Dropbox/Google Drive
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Auto switch themes, based on time
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Gestures &amp; keybinds
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Access to visualizer <a href="https://www.google.com/search?q=linear%20music%20visualizer%20images">[?]</a>
+          </li>
+          <li>
+            {{< partial "check.html" >}}
+            Private <a href="https://discord.io/choraleapp">chat</a>, priority support
+          </li>
+        </ul>
+      </div>
+      <a href="/order" class="btn btn--secondary btn--rough">Start free 14 day trial</a>
+    </figure>
+  </div>
+
+  <div class="break"></div><div class="break"></div>
+
+  <div class="icon-grid row">
+    <figure class="col">
+      <svg class="icon-grid__icon" viewBox="0 0 24 24">
+        <path d="M16.5,16H8A3,3 0 0,1 5,13A3,3 0 0,1 8,10C8.05,10 8.09,10 8.14,10C8.58,8.28 10.13,7 12,7A4,4 0 0,1 16,11H16.5A2.5,2.5 0 0,1 19,13.5A2.5,2.5 0 0,1 16.5,16M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+      </svg><div class="break break--half"></div>
+      <h3 class="h4 bold">All creators get access to listener plans</h3>
+      <p>Creators can use all features for free! But free user uploads are limited.
+        You can lift the limit by ordering <em>Unlimited+Extra</em> for $15/mo
+        or <em>Unlimited+Premier</em> for $20/mo.</p>
+      <a href="/contact">Contact us</a>
+    </figure>
+
+    <figure class="col">
+      <svg class="icon-grid__icon" viewBox="0 0 24 24">
+        <path d="M16,9V7H12V12.5C11.58,12.19 11.07,12 10.5,12A2.5,2.5 0 0,0 8,14.5A2.5,2.5 0 0,0 10.5,17A2.5,2.5 0 0,0 13,14.5V9H16M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z" />
+      </svg><div class="break break--half"></div>
+      <h3 class="h4 bold">Upgrade to a lossless streaming quality</h3>
+      <p>Choose the Extra or Premier plan and enable lossless 1441 kbps streaming.
+      The <em>Extra+Lossless</em> plan is $8/mo and <em>Premier+Lossless</em> is $12/mo.</p>
+      <a href="/order">Order paid plan</a>
+    </figure>
+  </div>
+  <div class="icon-grid row">
+    <figure class="col">
+      <svg class="icon-grid__icon" viewBox="0 0 24 24">
+        <path d="M16.23,18L12,15.45L7.77,18L8.89,13.19L5.16,9.96L10.08,9.54L12,5L13.92,9.53L18.84,9.95L15.11,13.18L16.23,18M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+      </svg><div class="break break--half"></div>
+      <h3 class="h4 bold">Priority support with a $10+ plan</h3>
+      <p>If you are paying more than $10 for Chorale each month, by subscribing
+      to Premier+Lossless or similiar plans, then your feature
+      requests and issues will get marked as urgent.</p>
+      <a href="/contact">Contact us</a>
+    </figure>
+
+    <figure class="col">
+      <svg class="icon-grid__icon" viewBox="0 0 24 24">
+        <path d="M17,13H7V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+      </svg><div class="break break--half"></div>
+      <h3 class="h4 bold">No refunds &amp; no discounts</h3>
+      <p>Our payment gateway, Patreon, does not allow refunds. In addition, we
+        do cannot provide discounts, unless you are a developer or contributor. Sorry!</p>
+      <a href="/contact">Contact us</a>
+    </figure>
+  </div>
+  <div class="break"></div><div class="break"></div>
+</main>

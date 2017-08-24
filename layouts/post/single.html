@@ -1,0 +1,25 @@
+{{ partial "meta.html" . }}
+<body class="default">
+{{ partial "nav-light.html" . }}
+<div class="hero" style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0{{ .Params.darken }}), rgba(0, 0, 0, 0{{ .Params.darken }})), url({{ .Params.image }})">
+  <div class="hero-greeting__container center">
+      <!-- preview -->
+  </div>
+</div>
+<section class="basic-section">
+  <div class="container container--narrow">
+    <h1 class="h1 bold "><b>{{ .Title }}</b></h1>
+    <h2 class="h3 bold no-upper-margin">{{ .Description }}</h2>
+    <div class="break break--half"></div>
+
+    <img src="https://image.crisp.chat/avatar/operator/cadc4207-3c89-4033-a436-8670701b7839/80/?avatar=https%3A%2F%2Fstorage.crisp.chat%2Fusers%2Favatar%2Foperator%2Fcadc4207-3c89-4033-a436-8670701b7839%2Fb7361758-4256-46cf-90f4-435af9c066b0.jpg" style="border-radius: 50%; width: 3rem; height: 3rem; float: left; margin-right: 1rem">
+    <span class="bold">Mantas</span><br>
+    <small class="bold caps">a {{ .ReadingTime }} minute read posted on {{ .Date.Format "January 2, 2006" }}</small>
+
+    <div class="markdown-container">
+      <p class="h5">{{ .Params.leadup }}</p>
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ partial "footer.html" . }}

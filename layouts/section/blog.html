@@ -1,0 +1,14 @@
+{{ partial "meta.html" . }}
+<body class="default">
+{{ partial "nav.html" . }}
+<section class="basic-section">
+  <div class="container">
+    <h1 class="h1 bold center"><b>Newsroom</b></h1>
+  <p class="center faded">{{ len (where .Site.Pages "Type" "post") }} articles, newest to oldest</p>
+    <div class="break"></div>
+    {{ range first 10 .Data.Pages }}
+      {{ .Render "summary" }}
+    {{ end }}
+  </div>
+</section>
+{{ partial "footer.html" . }}

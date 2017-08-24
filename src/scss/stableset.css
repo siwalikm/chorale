@@ -28,7 +28,7 @@ a {
   text-decoration: none;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   /* Correct values across Chrome, Firefox, Safari,
      and reset them for free use with classes instead */
   font-size: 100%;
@@ -75,7 +75,7 @@ abbr[title] {
 
 b, strong {
   /* Add the correct font weight in Chrome, Edge, and Safari */
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 details, menu {
