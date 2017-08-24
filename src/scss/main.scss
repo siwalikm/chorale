@@ -317,7 +317,7 @@ hr.fancy {
 
   .nav-bar.nav-bar--active-on-mobile {
     position: fixed;
-    background: rgba(#000, 0.8);
+    background: rgba(#fff, 0.8);
 
     .nav-bar__icon {
       &--open { display: none; }
@@ -332,7 +332,7 @@ hr.fancy {
       left: 0;
       height: 100%;
       width: 100%;
-      background: rgba(#000, 0.8);
+      background: rgba(#fff, 0.8);
 
       li {
         font-size: 1.6rem;

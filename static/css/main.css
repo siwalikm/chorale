@@ -502,7 +502,7 @@ hr.fancy {
       fill: #fff; }
   .nav-bar.nav-bar--active-on-mobile {
     position: fixed;
-    background: rgba(0, 0, 0, 0.8); }
+    background: rgba(255, 255, 255, 0.8); }
     .nav-bar.nav-bar--active-on-mobile .nav-bar__icon--open {
       display: none; }
     .nav-bar.nav-bar--active-on-mobile .nav-bar__icon--close {
@@ -515,7 +515,7 @@ hr.fancy {
       left: 0;
       height: 100%;
       width: 100%;
-      background: rgba(0, 0, 0, 0.8); }
+      background: rgba(255, 255, 255, 0.8); }
       .nav-bar.nav-bar--active-on-mobile .nav-bar__list li {
         font-size: 1.6rem;
         display: block;
