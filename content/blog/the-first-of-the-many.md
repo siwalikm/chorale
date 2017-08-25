@@ -4,7 +4,7 @@ description = "Your guess is wrong, it’s MESA not Kesha"
 leadup = "Who came first? That’s what no one asked, but secretly wondered around once. MESA (or MESA World) is the first artist to join the Chorale creator platform."
 image = "/article-img/some-guy.jpg"
 type = "post"
-date = 2017-08-24
+date = "2017-08-24"
 darken = ".4"
 +++
 
