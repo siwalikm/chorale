@@ -1,0 +1,22 @@
+$default-bg: #fff;            // in dark theme: 202020
+$regular-text-color: #292929; // in dark theme: #ccc
+$bold-text-color: #000;       // in dark theme: #fff
+
+$brand-main: #8728CC;         // variant: #AF3FFF
+$brand-secondary: #2861CC;
+
+// brighter versions
+//$brand-main: #DB1C1C; // E84D00
+//$brand-secondary: #032B43;
+
+// others
+$brand-yellow: #FFBE0B;
+$brand-orange: #FF7F3F;
+$brand-red: #E51B1B;
+$brand-light-blue: #7FFFF4;
+$brand-confident-blue: #2861CC;
+$brand-boring-blue: #3A86FF;
+$brand-blurple: #4328CC;
+$brand-pink: #FF006E;
+
+$layers: root, navroot, navlist, navtop, modal;

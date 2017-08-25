@@ -1,4 +1,10 @@
 @charset "UTF-8";
+/**
+ * This file is used as the "compile point".
+ * Here, everything is saved into one.
+ * CSS must be compiled into /static then
+ * commited. It's not built on the fly.
+ */
 /*! stableset.css v1.0 | MIT | github.com/mistermantas/stableset */
 html {
   /* Correct the line height in all browsers */
@@ -236,9 +242,6 @@ h1, h2, h3, h4, h5, h6 {
         flex: 0 0 50%; } }
 
 /*! What I Can't Live Without in CSS | MIT | github.com/mistermantas */
-/**
- * Root
- */
 html {
   font-family: 'Rubik', sans-serif;
   background: #fff;
@@ -271,17 +274,22 @@ a {
   a:active {
     opacity: 0.8; }
 
-hr.fancy {
+::-moz-selection {
+  background: #B4D5FF;
+  color: #000; }
+
+::selection {
+  background: #B4D5FF;
+  color: #000; }
+
+.fancy {
   border: 0;
   margin: 2rem;
   margin-bottom: 4rem; }
-  hr.fancy::after {
-    content: ' · · · · · ';
+  .fancy::after {
+    content: ' · · · ';
     letter-spacing: 1rem; }
 
-/**
- * Dropins
- */
 .container {
   max-width: 64rem;
   margin: 0 auto;
@@ -290,8 +298,16 @@ hr.fancy {
   .container--narrow {
     max-width: 48rem; }
 
+@media (max-width: 768px) {
+  .mobile-row .col {
+    margin-bottom: 2.5rem; } }
+
 .background {
   background-size: cover; }
+
+.stretch-img {
+  width: 100%;
+  height: 100%; }
 
 .no-bullet {
   list-style: none;
@@ -325,10 +341,53 @@ hr.fancy {
   .break--half {
     padding: 0.5rem; }
 
-@media (max-width: 640px) {
-  .mobile-break {
-    display: block;
-    margin: 2rem; } }
+.btn-group .btn {
+  margin: 0.25rem; }
+
+#snackbar-container {
+  position: fixed;
+  left: 1rem;
+  bottom: 0;
+  z-index: 5; }
+
+.snackbar {
+  background-color: #424242;
+  color: #fff;
+  border-radius: 0.1rem;
+  height: 0;
+  overflow: hidden;
+  min-width: 18rem;
+  max-width: 36rem;
+  cursor: pointer;
+  opacity: 0; }
+  .snackbar.active {
+    height: auto;
+    opacity: 1;
+    margin-bottom: 1rem;
+    height: auto; }
+    .snackbar.active span {
+      padding: 1rem 1.5rem;
+      display: inline-block; }
+    .snackbar.active > a {
+      text-transform: uppercase;
+      line-height: 100%;
+      font-weight: bold;
+      padding: 1rem;
+      float: right;
+      color: #8728CC;
+      position: relative;
+      top: 0.15rem; }
+
+@media (max-width: 40rem) {
+  #snackbar-container {
+    left: 0;
+    right: 0;
+    width: 100%; }
+  #snackbar-container .snackbar {
+    min-width: 100%; }
+  #snackbar-container .snackbar.active {
+    border-radius: 0;
+    margin-bottom: 0; } }
 
 /**
  * Elements
@@ -368,9 +427,6 @@ hr.fancy {
 
 .markdown-container h6 {
   font-size: 0.825rem; }
-
-.btn-group .btn {
-  margin: 0.25rem; }
 
 .btn {
   padding: 0.8rem 1.4rem;
@@ -454,7 +510,8 @@ hr.fancy {
  */
 .nav-bar {
   position: absolute;
-  width: 100%; }
+  width: 100%;
+  z-index: 2; }
   .nav-bar a {
     color: #000; }
   .nav-bar svg path {
@@ -463,8 +520,7 @@ hr.fancy {
     color: #fff; }
   .nav-bar--light svg path {
     fill: #fff; }
-  .nav-bar__logo {
-    margin: 0 1rem;
+  .nav-bar__logo img {
     margin-right: 2rem;
     height: 0.75rem;
     width: auto;
@@ -501,8 +557,15 @@ hr.fancy {
     .nav-bar__icon path {
       fill: #fff; }
   .nav-bar.nav-bar--active-on-mobile {
-    position: fixed;
-    background: rgba(255, 255, 255, 0.8); }
+    position: fixed; }
+    .nav-bar.nav-bar--active-on-mobile .nav-bar__icon, .nav-bar.nav-bar--active-on-mobile .nav-bar__logo {
+      z-index: 4; }
+    .nav-bar.nav-bar--active-on-mobile .nav-bar__icon path {
+      fill: #fff; }
+    .nav-bar.nav-bar--active-on-mobile .nav-bar__logo img {
+      filter: invert(); }
+    .nav-bar.nav-bar--active-on-mobile .nav-bar--light .nav-bar__logo img {
+      filter: none; }
     .nav-bar.nav-bar--active-on-mobile .nav-bar__icon--open {
       display: none; }
     .nav-bar.nav-bar--active-on-mobile .nav-bar__icon--close {
@@ -510,16 +573,26 @@ hr.fancy {
     .nav-bar.nav-bar--active-on-mobile .nav-bar__list {
       display: block;
       position: fixed;
-      top: 3.45rem;
-      padding-top: 3rem;
+      top: 0;
+      padding-top: 4.5rem;
       left: 0;
       height: 100%;
       width: 100%;
-      background: rgba(255, 255, 255, 0.8); }
+      background: #8728CC;
+      z-index: 3; }
+      .nav-bar.nav-bar--active-on-mobile .nav-bar__list li a {
+        color: #fff; }
       .nav-bar.nav-bar--active-on-mobile .nav-bar__list li {
         font-size: 1.6rem;
         display: block;
         padding: 0.5rem 3.25rem; } }
+
+.browse-bar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 0.08rem solid #dedede; }
 
 .header-cover {
   height: 3.45rem;
@@ -528,9 +601,6 @@ hr.fancy {
 /**
  * Globals
  */
-.light-gradient {
-  background-image: linear-gradient(#dfdfdf 10%, #fff 25%, #fff 20%, #fff 25%, #fff 30%); }
-
 .basic-section {
   padding: 6rem 0; }
 
@@ -570,11 +640,14 @@ hr.fancy {
     filter: grayscale() invert(0); }
     .footer .sponsor:hover {
       filter: none; }
+  .footer svg path {
+    fill: #fff; }
   .footer__logo {
-    height: 2rem;
-    width: 2rem;
     position: relative;
     top: 0.5rem; }
+  .footer__logo {
+    height: 2rem;
+    width: 2rem; }
     .footer__logo g {
       fill: #fff; }
 
@@ -609,19 +682,23 @@ hr.fancy {
     background-color: transparent; }
 
 @media (max-width: 640px) {
-  .hero-greeting__container {
+  .hero__container {
     max-width: 80%; } }
 
+@media (max-height: 768px) {
+  .hero {
+    padding: 4rem 1rem; } }
+
 @media (max-height: 600px) {
-  .hero-greeting__container {
+  .hero__container {
     max-width: 90%; }
-  .h1 {
+  .hero .h1 {
     font-size: 1.8rem; }
   .btn {
     padding: 0.4rem 0.6rem; } }
 
 @media (max-height: 480px) {
-  .hero-greeting__container {
+  .hero__container {
     max-width: 90%; }
   .h1 {
     font-size: 1.25rem; }
@@ -634,30 +711,6 @@ hr.fancy {
   border-bottom: 0.1rem solid #303030; }
 
 /**
- * Forms
- */
-select {
-  padding: 0.6rem;
-  background: transparent;
-  border: 0.1rem solid lightgray;
-  display: block;
-  color: #000;
-  width: 18rem; }
-
-.text-field {
-  padding: 0.6rem;
-  background: transparent;
-  border: 0.1rem solid lightgray;
-  display: block;
-  color: #000;
-  width: 18rem; }
-  .text-field:focus {
-    border-color: #000; }
-
-.number-field {
-  width: 6rem; }
-
-/**
  * Other
  */
 .warning {
@@ -667,11 +720,14 @@ select {
   border-radius: 0.25rem; }
 
 .icon-grid {
-  padding: 2rem 0; }
+  padding: 1.5rem 0.5rem; }
   .icon-grid .col {
     padding-right: 2rem; }
   .icon-grid .col:nth-child(even) {
     padding-right: 0; }
+  @media (max-width: 768px) {
+    .icon-grid .col {
+      padding-right: 0; } }
   .icon-grid__icon {
     height: 2rem;
     width: 2rem;
@@ -687,6 +743,9 @@ select {
   border-collapse: collapse;
   table-layout: fixed;
   display: block; }
+  .comparision-table svg {
+    height: 2rem;
+    width: 2rem; }
   .comparision-table th {
     padding: 1rem;
     padding-top: 1.5rem; }
@@ -722,51 +781,3 @@ select {
   background: #fff; }
   .article__details {
     padding: 3rem 1.8rem; }
-
-/**
- * Snackbars / toasts
- */
-#snackbar-container {
-  position: fixed;
-  left: 1rem;
-  bottom: 0;
-  z-index: 2; }
-
-.snackbar {
-  background-color: #424242;
-  color: #fff;
-  border-radius: 0.1rem;
-  height: 0;
-  overflow: hidden;
-  min-width: 18rem;
-  max-width: 36rem;
-  cursor: pointer;
-  opacity: 0; }
-  .snackbar.active {
-    height: auto;
-    opacity: 1;
-    margin-bottom: 1rem;
-    height: auto; }
-    .snackbar.active span {
-      padding: 1rem 1.5rem;
-      display: inline-block; }
-    .snackbar.active > a {
-      text-transform: uppercase;
-      line-height: 100%;
-      font-weight: bold;
-      padding: 1rem;
-      float: right;
-      color: #8728CC;
-      position: relative;
-      top: 0.15rem; }
-
-@media (max-width: 40rem) {
-  #snackbar-container {
-    left: 0;
-    right: 0;
-    width: 100%; }
-  #snackbar-container .snackbar {
-    min-width: 100%; }
-  #snackbar-container .snackbar.active {
-    border-radius: 0;
-    margin-bottom: 0; } }

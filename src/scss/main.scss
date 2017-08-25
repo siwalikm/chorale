@@ -1,129 +1,20 @@
-// Transpiles all to one
-@import 'stableset';
-@import 'gridly';
-@import 'wiclwic';
-
-$default-bg: #fff;           // in dark theme: 202020
-$regular-text-color: #292929;// in dark theme: #ccc
-$bold-text-color: #000;      // in dark theme: #fff
-
-$brand-main: #8728CC;        // variant: #AF3FFF
-$brand-secondary: #2861CC;
-
-// brighter
-//$brand-main: #DB1C1C; // E84D00
-//$brand-secondary: #032B43;
-
-// others
-$brand-yellow: #FFBE0B;
-$brand-orange: #FF7F3F;
-$brand-red: #E51B1B;
-$brand-light-blue: #7FFFF4;
-$brand-confident-blue: #2861CC;
-$brand-boring-blue: #3A86FF;
-$brand-blurple: #4328CC;
-$brand-pink: #FF006E;
-
-$layers: root, modal;
-
 /**
- * Root
+ * This file is used as the "compile point".
+ * Here, everything is saved into one.
+ * CSS must be compiled into /static then
+ * commited. It's not built on the fly.
  */
 
-html {
-  font-family: 'Rubik', sans-serif;
-  background: $default-bg;
-  color: $regular-text-color;
-  line-height: 1.5;
-  z-index: index($layers, root);
-  -webkit-tap-highlight-color: transparent;
-}
+// Libraries
+@import 'lib/stableset';
+@import 'lib/gridly';
+@import 'lib/wiclwic';
 
-mark {
-  background: transparent;
-  color: inherit;
-  font-weight: 500;
-}
-
-svg {
-  height: 1rem;
-  width: 1rem;
-  position: relative;
-  top: 0.125rem;
-
-  path, g { fill: $regular-text-color; }
-}
-
-img {
-  height: 50%;
-  width: 50%;
-}
-
-a {
-  color: $brand-main;
-
-  &:hover { color: $bold-text-color; }
-  &:active { opacity: 0.8; }
-}
-
-hr.fancy {
-  border: 0;
-  margin: 2rem;
-  margin-bottom: 4rem;
-
-  &::after {
-    content: ' · · · · · ';
-    letter-spacing: 1rem;
-  }
-}
-
-
-/**
- * Dropins
- */
-
-.container {
-  max-width: 64rem;
-  margin: 0 auto;
-  padding: 1rem;
-  display: block;
-
-  &--narrow { max-width: 48rem; }
-}
-
-.background {
-  background-size: cover;
-}
-
-// Reset
-.no-bullet {
-  list-style: none;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-
-// Text
-.bold { color: $bold-text-color; }
-.highlighted { color: $brand-main; }
-.center { text-align: center; }
-.right { text-align: right; }
-
-.faded { opacity: 0.8; }
-
-.caps { text-transform: uppercase; }
-
-.no-upper-margin { margin-top: 0; }
-
-// Align
-.break { padding: 1.5rem; &--half { padding: 0.5rem; } }
-
-@media (max-width: 640px) {
-  .mobile-break {
-    display: block;
-    margin: 2rem;
-  }
-}
+// Reusable parts
+@import 'components/vars';
+@import 'components/root';
+@import 'components/dropins';
+@import 'components/snacks';
 
 
 /**
@@ -145,8 +36,6 @@ hr.fancy {
   h5 { font-size: 1.125rem; }
   h6 { font-size: 0.825rem; }
 }
-
-.btn-group .btn { margin: 0.25rem; }
 
 .btn {
   padding: 0.8rem 1.4rem;
@@ -264,6 +153,7 @@ hr.fancy {
 .nav-bar {
   position: absolute;
   width: 100%;
+  z-index: index($layers, navroot);
 
   a { color: #000; }
   svg path { fill: #000; }
@@ -273,8 +163,7 @@ hr.fancy {
     svg path { fill: #fff; }
   }
 
-  &__logo {
-    margin: 0 1rem;
+  &__logo img {
     margin-right: 2rem;
     height: 0.75rem;
     width: auto;
@@ -297,6 +186,7 @@ hr.fancy {
   &__icon { display: none; }
 }
 
+// Mobile
 @media (max-width: 768px) {
   .nav-bar__list { display: none; }
   .nav-bar__logo { margin-left: 0; }
@@ -317,7 +207,14 @@ hr.fancy {
 
   .nav-bar.nav-bar--active-on-mobile {
     position: fixed;
-    background: rgba(#fff, 0.8);
+
+    .nav-bar__icon, .nav-bar__logo {
+      z-index: index($layers, navtop);
+    }
+
+    .nav-bar__icon path { fill: #fff; }
+    .nav-bar__logo img { filter: #{ "invert()" }; }
+    .nav-bar--light .nav-bar__logo img { filter: none; }
 
     .nav-bar__icon {
       &--open { display: none; }
@@ -327,13 +224,15 @@ hr.fancy {
     .nav-bar__list {
       display: block;
       position: fixed;
-      top: 3.45rem;
-      padding-top: 3rem;
+      top: 0;
+      padding-top: 4.5rem;
       left: 0;
       height: 100%;
       width: 100%;
-      background: rgba(#fff, 0.8);
+      background: $brand-main;
+      z-index: index($layers, navlist);
 
+      li a { color: #fff; }
       li {
         font-size: 1.6rem;
         display: block;
@@ -343,19 +242,22 @@ hr.fancy {
   }
 }
 
+.browse-bar {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 0.08rem solid #dedede;
+}
+
 .header-cover {
   height: 3.45rem;
-  background: #292929;
+  background: $regular-text-color;
 }
 
 
 /**
  * Globals
  */
-
-.light-gradient {
-  background-image: linear-gradient(#dfdfdf 10%, #fff 25%, #fff 20%, #fff 25%, #fff 30%);
-}
 
 .basic-section {
   padding: 6rem 0;
@@ -403,11 +305,15 @@ hr.fancy {
     &:hover { filter: none; }
   }
 
+  svg path { fill: #fff; }
+
+  &__logo {
+    position: relative;
+    top: 0.5rem;
+  }
   &__logo {
     height: 2rem;
     width: 2rem;
-    position: relative;
-    top: 0.5rem;
 
     g { fill: #fff; }
   }
@@ -425,9 +331,6 @@ hr.fancy {
   display: table-cell;
   vertical-align: middle;
   width: 100vw;
-  //display: flex;
-  //align-items: center;
-  //justify-content: center;
   background-color: #e5e5e5;
   background-size: cover;
 
@@ -456,21 +359,27 @@ hr.fancy {
 
 // Make sure container fits on screen
 @media (max-width: 640px) {
-  .hero-greeting__container {
+  .hero__container {
     max-width: 80%;
   }
 }
 
+@media (max-height: 768px) {
+  .hero {
+    padding: 4rem 1rem;
+  }
+}
+
 @media (max-height: 600px) {
-  .hero-greeting__container {
+  .hero__container {
     max-width: 90%;
   }
-  .h1 { font-size: 1.8rem; }
+  .hero .h1 { font-size: 1.8rem; }
   .btn { padding: 0.4rem 0.6rem; }
 }
 
 @media (max-height: 480px) {
-  .hero-greeting__container {
+  .hero__container {
     max-width: 90%;
   }
   .h1 { font-size: 1.25rem; }
@@ -485,35 +394,6 @@ hr.fancy {
 
 
 /**
- * Forms
- */
-
-select {
-  padding: 0.6rem;
-  background: transparent;
-  border: 0.1rem solid lightgray;
-  display: block;
-  color: $bold-text-color;
-  //margin: 0.6rem 0;
-  width: 18rem;
-}
-
-.text-field {
-  padding: 0.6rem;
-  background: transparent;
-  border: 0.1rem solid lightgray;
-  display: block;
-  color: $bold-text-color;
-  //margin: 0.6rem 0;
-  width: 18rem;
-
-  &:focus { border-color: $bold-text-color; }
-}
-
-.number-field { width: 6rem; }
-
-
-/**
  * Other
  */
 
@@ -525,10 +405,14 @@ select {
 }
 
 .icon-grid {
-  padding: 2rem 0;
+  padding: 1.5rem 0.5rem;
 
   .col { padding-right: 2rem; }
   .col:nth-child(even) { padding-right: 0; }
+
+  @media (max-width: 768px) {
+    .col { padding-right: 0; }
+  }
 
   &__icon {
     height: 2rem;
@@ -547,6 +431,12 @@ select {
   border-collapse: collapse;
   table-layout: fixed;
   display: block;
+
+  // Icons
+  svg {
+    height: 2rem;
+    width: 2rem;
+  }
 
   // Headings
   th {
@@ -600,70 +490,5 @@ select {
 
   &__details {
     padding: 3rem 1.8rem;
-  }
-}
-
-
-/**
- * Snackbars / toasts
- */
-
-#snackbar-container {
-  position: fixed;
-  left: 1rem;
-  bottom: 0;
-  z-index: index($layers, modal);
-}
-
-.snackbar {
-  background-color: #424242;
-  color: #fff;
-  border-radius: 0.1rem;
-  height: 0;
-  overflow: hidden;
-  min-width: 18rem;
-  max-width: 36rem;
-  cursor: pointer;
-  opacity: 0;
-
-  &.active {
-    height: auto;
-    opacity: 1;
-    margin-bottom: 1rem;
-    height: auto;
-
-    & span {
-      padding: 1rem 1.5rem;
-      display: inline-block;
-    }
-
-    & > a {
-      text-transform: uppercase;
-      line-height: 100%;
-      font-weight: bold;
-      padding: 1rem;
-      float: right;
-      color: $brand-main;
-      position: relative;
-      top: 0.15rem;
-    }
-  }
-}
-
-// Scale nicely on smaller devices
-@media (max-width: 40rem) {
-  #snackbar-container {
-    left: 0;
-    right: 0;
-    width: 100%;
-  }
-
-  #snackbar-container .snackbar {
-    min-width: 100%;
-  }
-
-  #snackbar-container .snackbar.active {
-    border-radius: 0;
-    margin-bottom: 0;
   }
 }

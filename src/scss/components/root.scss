@@ -1,0 +1,40 @@
+html {
+  font-family: 'Rubik', sans-serif;
+  background: $default-bg;
+  color: $regular-text-color;
+  line-height: 1.5;
+  z-index: index($layers, root);
+  -webkit-tap-highlight-color: transparent;
+}
+
+mark {
+  background: transparent;
+  color: inherit;
+  font-weight: 500;
+}
+
+svg {
+  height: 1rem;
+  width: 1rem;
+  position: relative;
+  top: 0.125rem;
+
+  path, g { fill: $regular-text-color; }
+}
+
+img {
+  height: 50%;
+  width: 50%;
+}
+
+a {
+  color: $brand-main;
+
+  &:hover { color: $bold-text-color; }
+  &:active { opacity: 0.8; }
+}
+
+::selection {
+  background: #B4D5FF; // default on Macs probably
+  color: #000;
+}
