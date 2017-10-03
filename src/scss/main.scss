@@ -225,7 +225,6 @@
     position: absolute;
     width: 100%;
     z-index: index($layers, navroot);
-    overflow-y: auto;
 
     &.nav-mobile--light {
       svg path { fill: #fff; }
