@@ -21,6 +21,7 @@
  * Elements
  */
 
+.h0 { font-size: 2.5rem; }
 .h1 { font-size: 2rem; }
 .h2 { font-size: 1.6rem; }
 .h3 { font-size: 1.5rem; }
@@ -65,6 +66,8 @@
   &--block {
     width: 100%;
   }
+
+  &--no-sides { border-left: 0; border-right: 0; }
 
   // For SVGs
   &--primary, &--secondary { svg path { fill: #fff; } }
@@ -120,6 +123,15 @@
     }
   }
 
+  &--white {
+    background: #fff;
+    color: #000;
+
+    &:hover {
+      background: #ededed;
+    }
+  }
+
   &--border {
     border-color: currentColor;
     color: $bold-text-color;
@@ -138,16 +150,18 @@
   border-radius: 0.25rem;
   background: $bold-bg;
 
-  &__header {
-    border-bottom: 0.1rem solid $border-color;
+  &__content {
+    border-top: 0.1rem solid $border-color;
   }
 
-  &__header, &__content { padding: 1.4rem 1rem; }
+  &__header { padding: 2rem 2.6rem; }
+  &__content { padding: 1rem; }
 }
+
+.card--highlighted { border-color: #000; }
 
 .card--primary {
   border-color: $brand-main;
-  transform: scale(1.125);
 
   .card__header {
     background: $brand-main;
@@ -442,15 +456,6 @@
   vertical-align: middle;
   width: 100vw;
   background-color: #292929;
-
-  a { color: #fff; }
-
-  .btn--primary {
-    background: #fff;
-    color: #000;
-
-    &:hover { background: #d5d5d5; }
-  }
 
   .btn--border {
     color: #fff;

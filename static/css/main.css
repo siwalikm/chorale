@@ -456,6 +456,9 @@ img[data-src] {
 /**
  * Elements
  */
+.h0 {
+  font-size: 2.5rem; }
+
 .h1 {
   font-size: 2rem; }
 
@@ -512,6 +515,9 @@ img[data-src] {
   text-align: center; }
   .btn--block {
     width: 100%; }
+  .btn--no-sides {
+    border-left: 0;
+    border-right: 0; }
   .btn--primary svg path, .btn--secondary svg path {
     fill: #fff; }
   .btn:active {
@@ -544,6 +550,11 @@ img[data-src] {
     color: #fff; }
     .btn--black:hover {
       background: #292929; }
+  .btn--white {
+    background: #fff;
+    color: #000; }
+    .btn--white:hover {
+      background: #ededed; }
   .btn--border {
     border-color: currentColor;
     color: #000; }
@@ -557,14 +568,18 @@ img[data-src] {
   border: 0.1rem solid #dedede;
   border-radius: 0.25rem;
   background: #fff; }
+  .card__content {
+    border-top: 0.1rem solid #dedede; }
   .card__header {
-    border-bottom: 0.1rem solid #dedede; }
-  .card__header, .card__content {
-    padding: 1.4rem 1rem; }
+    padding: 2rem 2.6rem; }
+  .card__content {
+    padding: 1rem; }
+
+.card--highlighted {
+  border-color: #000; }
 
 .card--primary {
-  border-color: #00ace5;
-  transform: scale(1.125); }
+  border-color: #00ace5; }
   .card--primary .card__header {
     background: #00ace5;
     color: #fff;
@@ -627,8 +642,7 @@ img[data-src] {
     display: block;
     position: absolute;
     width: 100%;
-    z-index: 4;
-    overflow-y: auto; }
+    z-index: 4; }
     .nav-mobile.nav-mobile--light svg path {
       fill: #fff; }
     .nav-mobile__logo img {
@@ -796,13 +810,6 @@ img[data-src] {
   vertical-align: middle;
   width: 100vw;
   background-color: #292929; }
-  .hero a {
-    color: #fff; }
-  .hero .btn--primary {
-    background: #fff;
-    color: #000; }
-    .hero .btn--primary:hover {
-      background: #d5d5d5; }
   .hero .btn--border {
     color: #fff; }
     .hero .btn--border:hover {
