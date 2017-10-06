@@ -8,3 +8,5 @@
 });
 
 console.log('JavaScript loaded. Lazy loading initialized.');
+
+MicroModal.init();

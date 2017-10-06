@@ -10,6 +10,16 @@
   }
 }
 
+// Prettier underline
+u {
+  text-decoration: none;
+  border-bottom: 0.1rem solid currentColor;
+}
+
+// Cursor change
+.clickable { cursor: pointer; }
+.wait { cursor: wait; }
+
 // No scroll
 .disable-scrolling {
   overflow: hidden;

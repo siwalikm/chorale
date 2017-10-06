@@ -16,6 +16,9 @@
 @import 'components/dropins';
 @import 'components/snacks';
 
+// Technically not a lib
+@import 'lib/modals';
+
 
 /**
  * Elements
@@ -67,8 +70,6 @@
     width: 100%;
   }
 
-  &--no-sides { border-left: 0; border-right: 0; }
-
   // For SVGs
   &--primary, &--secondary { svg path { fill: #fff; } }
 
@@ -119,7 +120,7 @@
     color: #fff;
 
     &:hover {
-      background: #292929;
+      background: silver;
     }
   }
 
@@ -129,6 +130,25 @@
 
     &:hover {
       background: #ededed;
+    }
+  }
+
+  &--bladark {
+    background: rgba(#000, 0.125);
+    color: #000;
+
+    &:hover {
+      background: rgba(#000, 0.2);
+    }
+  }
+
+  &--whidark {
+    background: rgba(#fff, 0.125);
+    color: #fff;
+
+    &:hover {
+      background: rgba(#fff, 0.2);
+      color: #fff;
     }
   }
 
@@ -143,12 +163,13 @@
   }
 }
 
+.accented-bg {
+  background: $accented-bg;
+}
+
 .card {
-  margin: 0 0.4rem;
   color: $regular-text-color;
-  border: 0.1rem solid $border-color;
-  border-radius: 0.25rem;
-  background: $bold-bg;
+  background: $accented-bg;
 
   &__content {
     border-top: 0.1rem solid $border-color;
@@ -158,7 +179,10 @@
   &__content { padding: 1rem; }
 }
 
-.card--highlighted { border-color: #000; }
+@media (min-width: 768px) {
+  .col:nth-child(1) .card .btn { border-right: 0; }
+  .col:nth-child(3) .card .btn { border-left: 0; }
+}
 
 .card--primary {
   border-color: $brand-main;
@@ -168,6 +192,8 @@
     color: #fff;
     border-bottom-color: $brand-main;
   }
+
+  .card__btn-cover { background: $brand-main; }
 }
 
 @media (max-width: 768px) {
@@ -182,6 +208,8 @@
     color: #fff;
     border-bottom-color: $brand-secondary;
   }
+
+  .card__btn-cover { background: $brand-secondary; }
 }
 
 
