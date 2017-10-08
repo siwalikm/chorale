@@ -1,10 +1,11 @@
 html {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: $default-bg;
   color: $regular-text-color;
   line-height: 1.5;
   z-index: index($layers, root);
   -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
 }
 
 mark {
@@ -41,6 +42,12 @@ a {
 img {
   opacity: 1;
   transition: opacity 0.4s;
+}
+
+blockquote {
+  padding: 0.25rem 1rem;
+  margin: 2rem 0;
+  border-left: 0.1rem solid currentColor;
 }
 
 img[data-src] { opacity: 0; }

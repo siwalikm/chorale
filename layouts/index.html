@@ -1,7 +1,53 @@
 {{ partial "meta.html" . }}
 <body class="index">
 {{ partial "nav-light.html" . }}
-<!-- Content -->
+<main class="hero large-vw-only">
+  <div class="container">
+  <div class="row">
+
+  <div class="col">
+    <h1 class="h1">
+      <b>Chorale is the free &amp; modern music app made for everyone, by everyone.</b>
+    </h1>
+    <p>Spotify, Google, and SoundCloud don’t listen to you. But we do. Chorale
+       is the first-ever music streaming platform that caters to users and not greedy executives.</p>
+
+    <div class="break-sm"></div>
+    <div class="btn-group">
+      <a href="/early-access" class="btn btn--white">Get Chorale</a>
+      <a href="/tour" class="btn btn--border">Tell me more</a>
+    </div>
+  </div>
+  <div class="col large-vw-only">
+    <img class="hero__phone" data-src="/img/nexusapp.png">
+  </div>
+  </div>
+  </div>
+</main>
+<div class="poly-mask large-vw-only">
+  <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+    <polygon points="0,100 100,0 100,100"></polygon>
+  </svg>
+</div>
+
+<header class="header-cover small-vw-only"></header>
+<section class="container small-vw-only center">
+  <div class="break"></div>
+  <h1 class="h1 bold"><b>Ditch Spotify. Chorale is what you need.</b></h1>
+  <p>Spotify, Google, and SoundCloud don’t listen to you. But we do. Chorale
+     is the first-ever music streaming platform that caters only to users.</p>
+
+  <div class="break-sm"></div>
+  <div class="btn-group">
+    <a href="/early-access" class="btn btn--black">Get Chorale</a>
+    <a href="/tour" class="btn btn--border">Tell me more</a>
+  </div>
+  <div class="break"></div>
+</section>
+<hr class="small-vw-only">
+
+
+<!-- Content
 <main class="hero background" style="background-image: linear-gradient(135deg, rgba(0,0,0,1), rgba(0,0,0,0.0)), url(/img/cd.gif)">
   <div class="container">
   <div class="row">
@@ -23,12 +69,11 @@
   </div>
   </div>
   </div>
-</main>
+</main> -->
 
 
 <section class="container">
-  <div class="break"></div><div class="break"></div><div class="break"></div>
-  <h1 class="h2 bold center"><b>Maybe some of these are relevant<span class="highlighted">.</span></b></h1>
+  <h1 class="h2 bold center large-vw-only"><b>Some of these may help<span class="highlighted">.</span></b></h1>
   <div class="break"></div>
 
   <div class="row mobile-row text-row">
@@ -37,7 +82,7 @@
       <p>If you are 13 or older, and do not mind waiting less than 48 hours, then you
       are eligible to sign up for Chorale! So go do it! It costs nothing to try something
       new.</p>
-      <a href="/early-access">Gimme the app</a>
+      <a href="/early-access">Get Chorale</a>
     </figure>
     <figure class="col">
       <h2 class="h5 bold">Learn more about Chorale</h2>
@@ -52,7 +97,7 @@
       <a href="/creators/">Visit Creator Center</a>
     </figure>
   </div>
-  <div class="break"></div><div class="break"></div><div class="break"></div>
+  <div class="break large-vw-only"></div><div class="break large-vw-only"></div><div class="break"></div>
 </section>
 <!-- Content -->
 {{ partial "footer.html" . }}

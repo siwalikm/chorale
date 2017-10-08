@@ -1,8 +1,8 @@
 // Brand colors
 //
 // Used commonly on the site
-$brand-main: #7231BC; // ffc300 41EAD4
-$brand-secondary: #31BC6D; // c31bc43
+$brand-main: #1965FF;
+$brand-secondary: #16A0E5;
 
 // Main paint colors
 //
@@ -27,7 +27,7 @@ $brand-blurple: #4328cc;
 $brand-pink: #ff006e;
 
 // Calculate z-index
-$layers: root, contentpush, sticky, navroot, navlist, navtop, modal;
+$layers: root, contentpush, forceup, sticky, navroot, navlist, navtop, modal;
 
 // Shadows
 $shadow1: 0 0.125rem 0.25rem rgba(#000, 0.2);

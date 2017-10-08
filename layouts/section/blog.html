@@ -1,7 +1,8 @@
 {{ partial "meta.html" . }}
 <body class="default">
 {{ partial "nav.html" . }}
-<section class="basic-section gradient-bg">
+<section class="gradient-bg">
+  <div class="break"></div><div class="break"></div>
   <div class="container container--narrow">
     <h1 class="h1 bold center"><b>Newsroom</b></h1>
   <p class="center faded">{{ len (where .Site.Pages "Type" "post") }} articles, newest to oldest</p>
@@ -10,5 +11,6 @@
       {{ .Render "summary" }}
     {{ end }}
   </div>
+  <div class="break"></div>
 </section>
 {{ partial "footer.html" . }}

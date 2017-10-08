@@ -9,11 +9,11 @@ type: basic
 
 <p class="bold center pricing__details--wait">
   Showing <u class="wait">monthly</u> pricing in
-  <u class="wait">EUR</u> <span class="ingrained">(using latest currency prices)</span>
+  <u class="wait">EUR</u> <span class="ingrained">(using latest currency rates)</span>
 
 <p class="bold center pricing__details--success" hidden>
   Showing <u class="pricing__timeframe clickable" onclick="changeTimeframe()">monthly</u> pricing in
-  <u class="pricing__currency-changer-button clickable" data-micromodal-trigger="currency-changer">EUR</u> <span class="ingrained">(using latest currency prices)</span></p>
+  <u class="pricing__currency-changer-button clickable" data-micromodal-trigger="currency-changer">EUR</u> <span class="ingrained">(using latest currency rates)</span></p>
 
 <p class="bold center pricing__details--failed" hidden>
   Showing monthly pricing in EUR<br>
@@ -53,7 +53,7 @@ type: basic
         </li>
         <li>
           {{< partial "check.html" >}}&nbsp;
-          Bring your own music
+          Upload 2 GB of own music
         </li>
         <li>
           {{< partial "check.html" >}}&nbsp;
@@ -107,7 +107,7 @@ type: basic
         </li>
         <li>
           {{< partial "check.html" >}}&nbsp;
-          Bring your own music
+          Upload 5 GB of music per week
         </li>
         <li>
           {{< partial "check.html" >}}&nbsp;
@@ -139,7 +139,7 @@ type: basic
         <div class="break break-sm"></div>
 
         <h2 class="h1">
-          <strong><sup class="pricing__third-plan-currency">€</sup><span class="pricing__third-plan-cost">8</span></strong><small>/mo</small>
+          <strong><sup class="pricing__third-plan-currency">€</sup><span class="pricing__third-plan-cost">12</span></strong><small>/mo</small>
         </h2>
         <p>The extreme plan with lossless playback, no ads, and special features.</p>
       </div>
@@ -157,11 +157,11 @@ type: basic
         </li>
         <li>
           {{< partial "check.html" >}}&nbsp;
-          Original quality (WAV/FLAC) sound
+          Lossless (WAV/FLAC) sound
         </li>
         <li>
           {{< partial "check.html" >}}&nbsp;
-          Bring your own music
+          No music uploading limit*
         </li>
         <li>
           {{< partial "check.html" >}}&nbsp;
@@ -184,36 +184,15 @@ type: basic
     </div>
   </div>
 
-
   <div class="break"></div>
-
-
-  <div class="icon-grid row">
-    <figure class="col">
-      <svg class="icon-grid__icon" viewBox="0 0 24 24">
-        <path d="M16.5,16H8A3,3 0 0,1 5,13A3,3 0 0,1 8,10C8.05,10 8.09,10 8.14,10C8.58,8.28 10.13,7 12,7A4,4 0 0,1 16,11H16.5A2.5,2.5 0 0,1 19,13.5A2.5,2.5 0 0,1 16.5,16M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
-      </svg><div class="break-sm"></div>
-      <h3 class="h4 bold">All creators get everything for free</h3>
-      <p>Creators can use all features for free! We have an acceptable uploads
-      policy which does limit random users from uploading gigabytes of random,
-      possibly stolen, music though.</p>
-      <a href="/contact">Contact to lift limit</a>
-    </figure>
-
-    <figure class="col">
-      <svg class="icon-grid__icon" viewBox="0 0 24 24">
-        <path d="M17,13H7V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
-      </svg><div class="break-sm"></div>
-      <h3 class="h4 bold">No group-specific discounts</h3>
-      <p>At this time, we cannot provide any discounts for groups like students,
-         or from bulk purchases (no family plan). This is most likely not going
-         to change.</p>
-      <a href="/contact">Contact us</a>
-    </figure>
-  </div>
+  <small class="faded">
+    <p>*Regarding unlimited uploading, misusing the unlimited
+    uploads feature will get your account frozen. Ask support for more information.</p>
+    <p>**You can request a refund within a 14 day period if you have not streamed a
+    song as per the European Cooling Off period.</p>
+  </small>
+  <div class="break"></div>
 </main>
-
-<div class="break"></div>
 
 
 <style>
@@ -315,10 +294,10 @@ function changeCurrency(currency) {
   // Calculate price
   if (document.querySelector('.pricing__timeframe').innerHTML === 'monthly') {
     var secondPlanPrice = roundInt(4 * newCurrencyRate, 1);
-    var thirdPlanPrice = roundInt(8 * newCurrencyRate, 1);
+    var thirdPlanPrice = roundInt(12 * newCurrencyRate, 1);
   } else {
     var secondPlanPrice = roundInt((4 * 12) * newCurrencyRate, 1);
-    var thirdPlanPrice = roundInt((8 * 12) * newCurrencyRate, 1);
+    var thirdPlanPrice = roundInt((12 * 12) * newCurrencyRate, 1);
   }
 
   document.querySelector('.pricing__second-plan-cost').innerHTML = secondPlanPrice;
@@ -333,10 +312,10 @@ function changeCurrency(currency) {
 function backToEuros() {
   if (document.querySelector('.pricing__timeframe').innerHTML === 'monthly') {
     document.querySelector('.pricing__second-plan-cost').innerHTML = '4';
-    document.querySelector('.pricing__third-plan-cost').innerHTML = '8';
+    document.querySelector('.pricing__third-plan-cost').innerHTML = '12';
   } else {
     document.querySelector('.pricing__second-plan-cost').innerHTML = 4 * 12;
-    document.querySelector('.pricing__third-plan-cost').innerHTML = 8 * 12;
+    document.querySelector('.pricing__third-plan-cost').innerHTML = 12 * 12;
   }
 
   // Change symbol

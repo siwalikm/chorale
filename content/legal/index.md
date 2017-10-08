@@ -1,11 +1,11 @@
 ---
-title: Legal
+marker: Last revised October 8, 2017
+title: Welcome! (Legal)
 type: wrapped
 ---
 
-<h1 class="bold"><b>Legal</b></h1>
+Switch to:
 
-The following documents are available for *previewing* at this time:
-
-+ [Privacy Policy](/legal/privacy)
-+ [Open Source License](/legal/license)
+> + [Terms of Service](/legal/terms)
+> + [Privacy Policy](/legal/privacy)
+> + [Open Source Software License Copy](/legal/license)

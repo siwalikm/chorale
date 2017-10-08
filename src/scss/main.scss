@@ -32,13 +32,47 @@
 .h5 { font-size: 1.2rem; }
 .h6 { font-size: 0.9rem; }
 
+@media (max-width: 768px) {
+  .h0 { font-size: 1.8rem; }
+}
+
 .markdown-container {
+  h1, h2, h4, h5, h6 {
+    color: $bold-text-color;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  h3 { opacity: 0.6; }
+
+  table {
+    margin: 2rem 0;
+    display: block;
+    overflow: auto;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  td, th {
+    padding: 1rem;
+    border: 0.1rem solid currentColor;
+  }
+
+  .highlighted-bg.container {
+    border-radius: 0.25rem;
+    margin: 2rem 0;
+  }
+
   h1 { font-size: 2rem; }
   h2 { font-size: 1.75rem; }
   h3 { font-size: 1.5rem; }
   h4 { font-size: 1.25rem; }
   h5 { font-size: 1.125rem; }
   h6 { font-size: 0.825rem; }
+
+  ol {
+    padding: 0 2rem;
+  }
 
   ul {
     padding: 0;
@@ -48,6 +82,7 @@
 
       &::before {
         content: " · ";
+        font-weight: bold;
         padding: 0 0.5rem;
       }
     }
@@ -62,7 +97,7 @@
   border-radius: 0.25rem;
   border: 0.1rem solid transparent;
   cursor: pointer;
-  display: inline-block;
+  display: inline-table;
   text-align: center;
 
   // Different form
@@ -154,16 +189,16 @@
 
   &--border {
     border-color: currentColor;
-    color: $bold-text-color;
+    color: currentColor;
 
     &:hover {
-      border-color: currentColor;
-      color: $brand-main;
+      color: currentColor;
+      border: currentColor dotted 0.1rem;
     }
   }
 }
 
-.accented-bg {
+.highlighted-bg {
   background: $accented-bg;
 }
 
@@ -243,7 +278,7 @@
     margin: 0;
     padding: 0;
 
-    li { padding: 0 1rem; }
+    li { padding: 0 1.2rem; }
 
     .nav-bar__logo { padding-left: 0; }
     .nav-bar__list--last-item { margin-right: auto; }
@@ -343,7 +378,7 @@
 
 // Old relic
 .header-cover {
-  height: 3.5rem;
+  height: 3.3rem;
   background: mix($default-bg, $bold-text-color, 10%);
 }
 
@@ -355,10 +390,6 @@
   background: linear-gradient(180deg, #eee, $default-bg 8%)
 }
 
-
-.basic-section {
-  padding: 6rem 0;
-}
 
 .larger-section {
   padding: 4rem 2rem;
@@ -473,85 +504,6 @@
 
 
 /**
- * Homepage
- */
-
-.hero {
-  height: 100vh;
-  background-size: cover;
-  color: #fff;
-  display: table-cell;
-  vertical-align: middle;
-  width: 100vw;
-  background-color: #292929;
-
-  .btn--border {
-    color: #fff;
-
-    &:hover { color: #d5d5d5; }
-  }
-
-  &--light {
-    color: #000;
-
-    a { color: #000; }
-
-    .btn--primary {
-      background: #000;
-      color: #fff;
-
-      &:hover { background: #292929; }
-    }
-
-    .btn { color: #fff; }
-
-    .btn--border {
-      color: #000;
-
-      &:hover { color: #292929; }
-    }
-  }
-
-  &--transparent { background-color: transparent; }
-  &--branded { background-image: linear-gradient(90deg, $brand-secondary, $brand-main); }
-}
-
-// Make sure container fits on screen
-@media (max-width: 640px) {
-  .hero__container {
-    max-width: 80%;
-  }
-}
-
-@media (max-height: 768px) {
-  .hero {
-    padding: 3.5rem 1rem;
-  }
-}
-
-@media (max-height: 600px) {
-  .hero__container {
-    max-width: 90%;
-  }
-  .hero .h1 { font-size: 1.8rem; }
-  .btn { padding: 0.4rem 0.6rem; }
-}
-
-@media (max-height: 480px) {
-  .hero__container {
-    max-width: 90%;
-  }
-  .btn { padding: 0.2rem 0.6rem; }
-}
-
-.basic-hero {
-  padding: 6rem 0;
-  color: $bold-text-color;
-  border-bottom: 0.1rem solid #303030;
-}
-
-
-/**
  * Other
  */
 
@@ -586,7 +538,7 @@
   }
 }
 
-.comparision-table {
+.comparison-table {
   width: 100%;
   overflow-x: auto;
   text-align: center;
@@ -694,6 +646,8 @@
   &:active {
     transform: scale(1.125);
   }
+
+  &--smaller { height: 4rem; width: 4rem; }
 }
 
 
@@ -708,3 +662,71 @@
   &__promo { color: #000; }
   .btn--border { color: #000; }
 }
+
+.index .hero {
+  background: linear-gradient(135deg, #0e0c17, #1c120a);
+
+  .hero__phone {
+    display: block;
+    margin: 0 auto;
+    height: 18rem;
+    width: auto;
+    transform: scale(1.75);
+  }
+}
+
+.poly-mask svg {
+  height: 6rem;
+  width: 100%;
+  position: relative;
+  top: -5.96rem;
+  z-index: index($layers, root);
+
+  polygon { fill: $default-bg; }
+}
+
+.poly-mask--gray svg { top: 0.525rem; }
+.poly-mask--gray svg polygon { fill: #1b1b1b; }
+
+.tour__wrapper {
+  background: #ee3439;
+  color: #fff;
+  z-index: index($layers, forceup);
+}
+
+.tour__laptop {
+  position: relative;
+  z-index: index($layers, forceup);
+}
+
+.tour__mask {
+  position: relative;
+  top: -18rem;
+}
+
+.tour__mask--extra-padding {
+  padding: 10rem;
+  background: #fff;
+  position: relative;
+  top: -6.5rem;
+}
+
+.flex-align {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.tour__chat {
+  margin: 0 auto;
+  display: block;
+  width: 20rem;
+}
+
+.tour__customize {
+  margin: 0 auto;
+  display: block;
+  width: 40vh;
+}
+
+.tour__second-cta { background: #ee3439; }
